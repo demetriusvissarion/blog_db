@@ -1,10 +1,11 @@
 class Post:
     # We initialise with all of our attributes
     # Each column in the table should have an attribute here
-    def __init__(self, id, title, content):
+    def __init__(self, id, title, post_content, comments = []):
         self.id = id
         self.title = title
-        self.content = content
+        self.post_content = post_content
+        self.comments = comments
 
     # This method allows our tests to assert that the objects it expects
     # are the objects we made based on the database records.
@@ -13,7 +14,9 @@ class Post:
 
     # This method makes it look nicer when we print an Post
     def __repr__(self):
-        return f"Post({self.id}, {self.title}, {self.content})"
+        if len(self.comments) > 0:
+            return f"Post({self.id}, {self.title}, {self.post_content}, {self.comments})"
+        return f"Post({self.id}, {self.title}, {self.post_content})"
 
 # | Record                | Properties                    |
 # | --------------------- | ----------------------------- |

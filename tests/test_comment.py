@@ -7,7 +7,7 @@ def test_comment_constructs():
     comment = Comment(1, 1, "Test Content", 'Test Author')
     assert comment.id == 1
     assert comment.post_id == 1
-    assert comment.content == "Test Content"
+    assert comment.comment_content == "Test Content"
     assert comment.author_name == 'Test Author'
 
 """

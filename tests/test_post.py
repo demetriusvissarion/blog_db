@@ -7,7 +7,7 @@ def test_post_constructs():
     post = Post(1, "Quisque", "Quisque at efficitur libero.")
     assert post.id == 1
     assert post.title == "Quisque"
-    assert post.content == "Quisque at efficitur libero."
+    assert post.post_content == "Quisque at efficitur libero."
 
 """
 We can format posts to strings nicely

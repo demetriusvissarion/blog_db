@@ -1,5 +1,6 @@
 from lib.post_repository import PostRepository
 from lib.post import Post
+from lib.comment import Comment
 
 """
 When we call PostRepository#all
@@ -25,6 +26,16 @@ def test_get_single_record(db_connection):
 
     post = repository.find(3)
     assert post == Post(3, 'Post_title_3', 'Post_content_3')
+
+def test_find_with_comments(db_connection):
+    db_connection.seed("seeds/blog.sql")
+    repository = PostRepository(db_connection)
+
+    post = repository.find_with_comments(1) # find post 1 and all comments
+    assert post == Post(1, 'Post_title_1', 'Post_content_1', [
+        Comment(1, 1, 'Comment_1', 'Author_1'),
+        Comment(2, 1, 'Comment_2', 'Author_2'),
+    ])
 
 # """
 # When we call PostRepository#create
@@ -60,3 +71,8 @@ def test_get_single_record(db_connection):
 #         Post(2, "ABBA", "Pop"),
 #         Post(4, "Nina Simone", "Jazz"),
 #     ]
+
+# | Record                | Properties                    |
+# | --------------------- | ----------------------------- |
+# | posts                 | title, post_content                |
+# | comments              | post_id, comment_content, author_title |
