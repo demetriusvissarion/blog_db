@@ -1,5 +1,5 @@
 from lib.database_connection import DatabaseConnection
-from lib.artist_repository import ArtistRepository
+from lib.post_repository import ArtistRepository
 
 
 # Connect to the database
