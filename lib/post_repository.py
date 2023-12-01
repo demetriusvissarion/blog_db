@@ -52,3 +52,4 @@ class PostRepository:
 # | --------------------- | ----------------------------- |
 # | posts                 | title, content                |
 # | comments              | post_id, content, author_title |
+
